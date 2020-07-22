@@ -1,0 +1,17 @@
+.start {
+  background-color: var(--orange) !important;
+  color: white !important;
+}
+.start:hover {
+  background-color: var(--red) !important;
+}
+
+.start-page > div {
+  height: 90%;
+}
+
+@media screen and (max-width: var(--breakpoint-md)) {
+  .start-page > div {
+    height: 50%;
+  }
+}

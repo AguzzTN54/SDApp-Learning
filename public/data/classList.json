@@ -1,0 +1,66 @@
+{
+  "data": [
+    {
+      "kelas": 1,
+      "isSemester": false,
+      "items": [
+        {
+          "id": 1,
+          "title": "Alphabets",
+          "pic": "kelas1/alpha.png"
+        },
+        {
+          "id": 2,
+          "title": "Numbers",
+          "pic": "kelas1/numbers.png"
+        },
+        {
+          "id": 3,
+          "title": "Colors",
+          "pic": "kelas1/colors.png"
+        }
+      ]
+    },
+    {
+      "kelas": 2,
+      "isSemester": false,
+      "items": [
+        {
+          "id": 4,
+          "title": "Clock's",
+          "pic": "kelas2/clock.png"
+        },
+        {
+          "id": 5,
+          "title": "Foods & Drinks",
+          "pic": "kelas2/foods.png"
+        },
+        {
+          "id": 6,
+          "title": "Hobby",
+          "pic": "kelas2/hobby.png"
+        }
+      ]
+    },
+    {
+      "kelas": 3,
+      "isSemester": true,
+      "items": []
+    },
+    {
+      "kelas": 4,
+      "isSemester": true,
+      "items": []
+    },
+    {
+      "kelas": 5,
+      "isSemester": true,
+      "items": []
+    },
+    {
+      "kelas": 6,
+      "isSemester": true,
+      "items": []
+    }
+  ]
+}

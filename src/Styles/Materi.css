@@ -1,0 +1,13 @@
+.materi-title {
+  top: 0;
+  transform: translateY(-50%);
+  justify-content: space-evenly;
+}
+
+.materiTitle {
+  left: -20px;
+}
+
+.semester {
+  right: -20px;
+}
