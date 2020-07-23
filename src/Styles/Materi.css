@@ -11,3 +11,24 @@
 .semester {
   right: -20px;
 }
+
+.btn-play {
+  width: 150px;
+  height: 150px;
+}
+
+@media screen and (max-width: 768px) {
+  .btn-play {
+    height: 100px !important;
+    width: 100px !important;
+    position: relative;
+    padding: 0;
+  }
+}
+@media screen and (max-width: 574px) {
+  .btn-play {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+  }
+}

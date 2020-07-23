@@ -16,9 +16,9 @@ module.exports = merge(common, {
       },
     ],
   },
-  externals: {
-    // prettier-ignore
-    'react': 'React',
-    'react-dom': 'ReactDOM',
-  },
+  // externals: {
+  //   // prettier-ignore
+  //   'react': 'React',
+  //   'react-dom': 'ReactDOM',
+  // },
 })

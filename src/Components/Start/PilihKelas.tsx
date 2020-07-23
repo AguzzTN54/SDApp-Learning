@@ -13,31 +13,30 @@ export class PilihKelas extends Component<{}, State> {
     }
   }
 
-  async componentWillMount() {
+  componentWillMount() {
     const classes = []
+
     for (let i: number = 1; i < 7; i++) {
-      const classe = await import(`../../Images/PilihKelas/kls${i}.png`).then(
-        (pic) => {
-          const href = `#/grade/${i}`,
-            id = `kelas${i}`
-          return (
-            <div className='col-6 col-md-4 p-1' key={id}>
-              <figure>
-                <a href={href}>
-                  <img
-                    src={pic.default}
-                    alt='Kelas'
-                    style={{ width: 150 + 'px', maxWidth: 90 + '%' }}
-                  />
-                </a>
-              </figure>
-            </div>
-          )
-        }
+      const href = `#/grade/${i}`,
+        id = `kelas${i}`,
+        pic = `assets/Images/PilihKelas/kls${i}.png`
+
+      const classe = (
+        <div className='col-6 col-md-4 p-1' key={id}>
+          <figure>
+            <a href={href}>
+              <img
+                src={pic}
+                alt='Kelas'
+                style={{ width: 150 + 'px', maxWidth: 90 + '%' }}
+              />
+            </a>
+          </figure>
+        </div>
       )
       classes.push(classe)
     }
-    await this.setState({ classes: classes })
+    this.setState({ classes: classes })
   }
 
   render() {

@@ -1,19 +1,11 @@
 {
   "presets": [
-    "@babel/typescript",
+    "@babel/preset-typescript",
     "@babel/preset-env",
     "@babel/preset-react"
     // {
     //   "modules": false
     // }
   ],
-  "plugins": [
-    "@babel/plugin-syntax-jsx",
-    [
-      "@babel/plugin-transform-react-jsx"
-      // {
-      //   "pragma": "dom"
-      // }
-    ]
-  ]
+  "plugins": ["@babel/plugin-syntax-jsx", ["@babel/plugin-transform-react-jsx"]]
 }

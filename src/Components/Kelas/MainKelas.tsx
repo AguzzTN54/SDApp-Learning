@@ -74,7 +74,7 @@ export class Kelas extends Component<Props, State> {
               <a href={href}>
                 <figure>
                   <img
-                    src={'./assets/Images/smt' + i + '.png'}
+                    src={'./assets/Images/smt' + i + '.webp'}
                     alt='Kelas'
                     className='rounded w-100'
                   />

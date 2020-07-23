@@ -30,11 +30,15 @@ class Materi extends Component<{}, State> {
     const rute = route()
     switch (rute.kelas) {
       case 1:
-        content = <Kelas1 title={this.setTitle.bind(this)} />
+        content = (
+          <Kelas1 title={this.setTitle.bind(this)} idMateri={rute.idMateri} />
+        )
         break
 
       case 2:
-        content = <Kelas2 />
+        content = (
+          <Kelas2 title={this.setTitle.bind(this)} idMateri={rute.idMateri} />
+        )
         break
 
       default:
