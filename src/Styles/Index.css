@@ -10,11 +10,11 @@
   overflow-x: hidden;
 }
 
-@media screen and (min-width: 576px) {
+/* @media screen and (min-width: 576px) {
   #root {
     height: 100vh;
   }
-}
+} */
 
 .content-page {
   background-color: var(--cyan);
