@@ -3,7 +3,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const Path = require('path')
-// const { InjectManifest } = require('workbox-webpack-plugin')
+const { InjectManifest } = require('workbox-webpack-plugin')
 
 module.exports = {
   entry: './src/Index.tsx',
@@ -65,8 +65,8 @@ module.exports = {
       template: './public/index.html',
       filename: 'index.html',
     }),
-    // new InjectManifest({
-    //   swSrc: Path.join(process.cwd(), './src/sw.js'),
-    // }),
+    new InjectManifest({
+      swSrc: Path.join(process.cwd(), './src/sw.js'),
+    }),
   ],
 }

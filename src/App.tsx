@@ -20,6 +20,9 @@ class App extends Component<{}, State> {
   }
 
   componentDidMount() {
+    const loader = document.querySelector('#loader')
+    if (loader) loader.remove()
+
     window.addEventListener('popstate', () => {
       const rute = route()
       this.setState({ page: rute.page, kelas: rute.kelas })
