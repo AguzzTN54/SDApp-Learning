@@ -13,7 +13,7 @@ type State = {
   sub_bab: string
   data: Data
 }
-class Kelas2 extends Component<Props, State> {
+export class Kelas2 extends Component<Props, State> {
   constructor(props: Props) {
     super(props)
     this.state = {
@@ -151,5 +151,3 @@ class Kelas2 extends Component<Props, State> {
     )
   }
 }
-
-export default Kelas2

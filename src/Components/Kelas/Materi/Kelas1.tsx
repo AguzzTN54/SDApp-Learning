@@ -4,7 +4,7 @@ import Kelas1Item from './Kelas1Item'
 
 type Props = { title: any; idMateri: number }
 type State = { idMateri: number }
-class Kelas1 extends Component<Props, State> {
+export class Kelas1 extends Component<Props, State> {
   constructor(props: Props) {
     super(props)
     this.state = { idMateri: 0 }
@@ -102,5 +102,3 @@ class Kelas1 extends Component<Props, State> {
     return konten
   }
 }
-
-export default Kelas1

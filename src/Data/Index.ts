@@ -30,17 +30,27 @@ export class DataKelas {
       baseURL = 'http://localhost:3000'
     }
 
-    await fetch(`${baseURL}/data_materi?_order=asc&_sort=id&${target}`)
+    await fetch(`${baseURL}${target}&_sort=id&_order=asc`)
       .then((data) => data.json())
       .then((dataJSON) => (returnData = dataJSON))
 
     return await returnData
   }
 
+  getClassList() {
+    return this.getData(`/list_bab?`)
+  }
+
+  getListBab(grade: number) {
+    return this.getData(`/list_bab?kelas=${grade}`)
+  }
+
   getFirst(data: { grade: number; subBab: string }) {
-    return this.getData(`grade=${data.grade}&sub_bab=${data.subBab}&_limit=1`)
+    return this.getData(
+      `/data_materi?grade=${data.grade}&sub_bab=${data.subBab}&_limit=1`
+    )
   }
   getById(id: number) {
-    return this.getData(`id=${id}`)
+    return this.getData(`/data_materi?id=${id}`)
   }
 }

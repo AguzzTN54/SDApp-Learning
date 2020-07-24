@@ -32,3 +32,37 @@
     padding: 10px;
   }
 }
+
+table {
+  background-color: #fff;
+  padding: 0 10px;
+  color: #212529;
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 15px !important;
+}
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+th {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #454d55;
+}
+tr {
+  display: table-row;
+  vertical-align: inherit;
+  border-color: inherit;
+}
+tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+td,
+table th {
+  padding: 0.5rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+  display: table-cell;
+}

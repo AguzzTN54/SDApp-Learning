@@ -3,7 +3,7 @@ import { DataKelas } from '../../Data'
 import { route } from '../../Functions'
 import bg from '../../Images/bg2.webp'
 import NavButton from '../NavButton'
-import Materi from './Materi'
+import Materi from './MateriContent'
 
 type Props = {
   kelas: number
@@ -28,12 +28,10 @@ export class Kelas extends Component<Props, State> {
   }
 
   getData() {
-    return DataKelas.ambil('classList').then((data: { data: object[] }) => {
-      data.data.forEach((item: { kelas: number }) => {
-        if (item.kelas === this.props.kelas) {
-          this.setState({ dataKelas: data.data[item.kelas - 1] })
-        }
-      })
+    const { kelas } = this.props
+    const D = new DataKelas()
+    return D.getListBab(kelas).then((data: object[]) => {
+      this.setState({ dataKelas: data[0] })
     })
   }
   componentDidUpdate(prevProps: Props) {
@@ -48,21 +46,26 @@ export class Kelas extends Component<Props, State> {
     let kontenKelas: any = []
 
     if (dataKelas && dataKelas.kelas === kelas) {
-      const { isSemester, items } = dataKelas
+      const { isSemester, items, dir } = dataKelas
       if (!isSemester) {
-        items.forEach((item: { id: number; title: string; pic: string }) => {
-          const { id, pic } = item
+        items.forEach((item: { id: number; title: string; name: string }) => {
+          let col: string = 'col-lg-3'
+          if (kelas > 2) col = 'col-lg-2'
+          const { id, name, title } = item
           const href = `#/grade/${kelas}/1/${id}`
           const itemContent = (
-            <div className='itemKelas col-sm-6 col-md-4' key={id}>
+            <div
+              className={'itemKelas mb-4 text-center col-sm-6 col-md-4 ' + col}
+              key={id}>
               <a href={href}>
                 <figure>
                   <img
-                    src={'./assets/Images/' + pic}
+                    src={`./assets/Images/${dir}/${name}.webp`}
                     alt='Kelas'
                     className='rounded w-100'
                   />
                 </figure>
+                <h4 className='text-dark'>{title}</h4>
               </a>
             </div>
           )
@@ -72,7 +75,9 @@ export class Kelas extends Component<Props, State> {
         for (let i: number = 1; i < 3; i++) {
           const href = `#/grade/${kelas}/${i}`
           const itemContent = (
-            <div className='itemKelas col-sm-6 col-md-4' key={'sem' + i}>
+            <div
+              className='itemKelas col-sm-6 col-md-4 col-lg-3 mb-4'
+              key={'sem' + i}>
               <a href={href}>
                 <figure>
                   <img
@@ -94,7 +99,7 @@ export class Kelas extends Component<Props, State> {
     }
 
     return (
-      <div className='row justify-content-center col-md-11 col-lg-9'>
+      <div className='row align-items-end justify-content-center col-md-11 col-lg'>
         {kontenKelas}
       </div>
     )
@@ -106,7 +111,7 @@ export class Kelas extends Component<Props, State> {
     let page, materiTitle
 
     if (semester) {
-      page = <Materi />
+      page = <Materi semester={semester} />
     } else {
       page = this.kontenKelas()
     }
