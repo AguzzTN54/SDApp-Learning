@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import DataKelas from '../../Data'
+import { DataKelas } from '../../Data'
 import { route } from '../../Functions'
 import bg from '../../Images/bg2.webp'
 import NavButton from '../NavButton'
@@ -15,6 +15,8 @@ type State = {
 export class Kelas extends Component<Props, State> {
   constructor(props: Props) {
     super(props)
+
+    document.title = `Kelas ${this.props.kelas} - Belajar Bahasa Inggris`
     this.state = {
       dataKelas: null,
     }

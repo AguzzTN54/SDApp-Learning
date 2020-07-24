@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import * as marked from 'marked'
-import DataKelas from '../../../Data'
+import { DataKelas } from '../../../Data'
 
 type Props = { idMateri: number; title: any }
 type Data = {
@@ -61,6 +61,14 @@ class Kelas2 extends Component<Props, State> {
     }
     if (set) {
       this.setState({ idMateri: idMateri, sub_bab: sub_bab })
+    } else {
+      this.setState({
+        data: {
+          content: '<h3> No Data</h3>',
+          prev_content: 0,
+          next_content: 0,
+        },
+      })
     }
     title(jdl)
     document.title = jdl + ' - Kelas 2'
@@ -70,13 +78,15 @@ class Kelas2 extends Component<Props, State> {
   getData(subBab: string) {
     const D = new DataKelas()
     D.getFirst({ grade: 2, subBab: subBab }).then((data: Data[]) => {
-      this.setState({
-        data: {
-          next_content: data[0].next_content,
-          prev_content: data[0].prev_content,
-          content: marked(data[0].content),
-        },
-      })
+      if (data.length > 0) {
+        this.setState({
+          data: {
+            next_content: data[0].next_content,
+            prev_content: data[0].prev_content,
+            content: marked(data[0].content),
+          },
+        })
+      }
     })
   }
 
@@ -102,7 +112,6 @@ class Kelas2 extends Component<Props, State> {
         <button
           className='btn btn-danger'
           onClick={() => this.otherContent(next_content)}>
-          {' '}
           Next
         </button>
       )
@@ -112,7 +121,6 @@ class Kelas2 extends Component<Props, State> {
         <button
           className='btn btn-danger'
           onClick={() => this.otherContent(prev_content)}>
-          {' '}
           Prev
         </button>
       )

@@ -34,6 +34,7 @@ class App extends Component<{}, State> {
         break
 
       case 'pilih':
+        document.title = 'Pilih Kelas'
         page = <PilihKelas />
         break
 

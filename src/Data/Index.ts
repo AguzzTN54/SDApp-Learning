@@ -1,4 +1,4 @@
-class DataKelas {
+export class DataKelas {
   static async ambil(target: string) {
     const dataURI: string = 'data/' + target + '.json'
     let inCache: boolean = false
@@ -44,5 +44,3 @@ class DataKelas {
     return this.getData(`id=${id}`)
   }
 }
-
-export default DataKelas
