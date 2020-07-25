@@ -55,7 +55,9 @@ export class Kelas extends Component<Props, State> {
           const href = `#/grade/${kelas}/1/${id}`
           const itemContent = (
             <div
-              className={'itemKelas mb-4 text-center col-sm-6 col-md-4 ' + col}
+              className={
+                'itemKelas mb-4 text-center col-6 col-sm-6 col-md-4 ' + col
+              }
               key={id}>
               <a href={href}>
                 <figure>
@@ -76,7 +78,7 @@ export class Kelas extends Component<Props, State> {
           const href = `#/grade/${kelas}/${i}`
           const itemContent = (
             <div
-              className='itemKelas col-sm-6 col-md-4 col-lg-3 mb-4'
+              className='itemKelas col-6 col-sm-6 col-md-4 col-lg-3 mb-4'
               key={'sem' + i}>
               <a href={href}>
                 <figure>
@@ -95,7 +97,7 @@ export class Kelas extends Component<Props, State> {
     } else if (!kelas || kelas > 6) {
       kontenKelas = <h3>Tidak Ada Kelas</h3>
     } else {
-      kontenKelas = <>Loading...</>
+      kontenKelas = <span>Loading...</span>
     }
 
     return (
@@ -108,7 +110,7 @@ export class Kelas extends Component<Props, State> {
   render() {
     const { kelas } = this.props
     const { semester } = route()
-    let page, materiTitle
+    let page
 
     if (semester) {
       page = <Materi semester={semester} />
@@ -125,9 +127,10 @@ export class Kelas extends Component<Props, State> {
           </h1>
         </div>
         <div className='ml-1 mr-1'>
-          {materiTitle}
-          <div className='container konten rounded mt-5 mb-3 p-4 d-flex justify-content-center position-relative'>
-            <div className='row justify-content-center w-100'>{page}</div>
+          <div className='container konten rounded mt-5 mb-3 pl-4 pr-4 pt-4 pb-2 d-flex justify-content-center position-relative'>
+            <div className='row justify-content-center w-100 align-items-center konten-item'>
+              {page}
+            </div>
           </div>
         </div>
         <NavButton />

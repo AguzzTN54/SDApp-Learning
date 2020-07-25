@@ -4,6 +4,7 @@ import { DataKelas } from '../../../Data'
 import { route } from '../../../Functions'
 
 type Data = {
+  hal: number
   content: any
   next_content: number
   prev_content: number
@@ -22,7 +23,12 @@ export class MateriDefault extends Component<Props, State> {
     this.state = {
       grade: rute.kelas,
       title: null,
-      data: { content: 'Loading ..', prev_content: 0, next_content: 0 },
+      data: {
+        hal: 1,
+        content: `<p class="text-center">Loading ..</p>`,
+        prev_content: 0,
+        next_content: 0,
+      },
     }
   }
 
@@ -42,6 +48,7 @@ export class MateriDefault extends Component<Props, State> {
           this.setState({
             title: title,
             data: {
+              hal: 1,
               next_content: data[0].next_content,
               prev_content: data[0].prev_content,
               content: marked(data[0].content),
@@ -51,9 +58,10 @@ export class MateriDefault extends Component<Props, State> {
           this.setState({
             title: 'No Data',
             data: {
+              hal: 0,
               next_content: 0,
               prev_content: 0,
-              content: '<h3> No Data</h3>',
+              content: '<h3 class="text-center"> No Data</h3>',
             },
           })
         }
@@ -61,11 +69,16 @@ export class MateriDefault extends Component<Props, State> {
     })
   }
 
-  otherContent(id: number) {
+  otherContent(id: number, btn: string) {
+    document.querySelector('.konten-item').scrollTo(0, 0)
+    const { hal } = this.state.data
+    let pg = hal + 1
+    if (btn == 'prev') pg = hal - 1
     const D = new DataKelas()
     D.getById(id).then((data: Data[]) => {
       this.setState({
         data: {
+          hal: pg,
           next_content: data[0].next_content,
           prev_content: data[0].prev_content,
           content: marked(data[0].content),
@@ -77,21 +90,26 @@ export class MateriDefault extends Component<Props, State> {
   render() {
     let nextBtn: any = '',
       prevBtn: any = ''
-    const { content, next_content, prev_content } = this.state.data
+    const { hal, next_content, prev_content } = this.state.data
     if (next_content > 0) {
       nextBtn = (
-        <button
-          className='btn btn-danger'
-          onClick={() => this.otherContent(next_content)}>
-          Next
-        </button>
+        <>
+          <span>
+            page <strong> {hal} </strong>
+          </span>
+          <button
+            className='btn btn-danger'
+            onClick={() => this.otherContent(next_content, 'next')}>
+            Next
+          </button>
+        </>
       )
     }
     if (prev_content > 0) {
       prevBtn = (
         <button
           className='btn btn-danger'
-          onClick={() => this.otherContent(prev_content)}>
+          onClick={() => this.otherContent(prev_content, 'prev')}>
           Prev
         </button>
       )
@@ -99,7 +117,9 @@ export class MateriDefault extends Component<Props, State> {
     return (
       <div className='col-10 col-sm-9 col-md-8 p-0 mt-4 mb-3'>
         <div dangerouslySetInnerHTML={{ __html: this.state.data.content }} />
-        <div style={{ justifyContent: 'space-evenly' }} className='d-flex pt-4'>
+        <div
+          style={{ justifyContent: 'space-evenly', alignItems: 'center' }}
+          className='d-flex pt-4'>
           {prevBtn} {nextBtn}
         </div>
       </div>

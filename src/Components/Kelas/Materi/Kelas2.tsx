@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component, useEffect } from 'react'
 import * as marked from 'marked'
 import { DataKelas } from '../../../Data'
 
 type Props = { idMateri: number; title: any }
 type Data = {
+  hal: number
   content: any
   next_content: number
   prev_content: number
@@ -19,7 +20,12 @@ export class Kelas2 extends Component<Props, State> {
     this.state = {
       idMateri: 0,
       sub_bab: null,
-      data: { next_content: 0, prev_content: 0, content: 'Loading..' },
+      data: {
+        hal: 1,
+        content: `<p class="text-center">Loading ..</p>`,
+        prev_content: 0,
+        next_content: 0,
+      },
     }
   }
   componentDidMount() {
@@ -64,7 +70,8 @@ export class Kelas2 extends Component<Props, State> {
     } else {
       this.setState({
         data: {
-          content: '<h3> No Data</h3>',
+          hal: 0,
+          content: '<h3 class="text-center"> No Data</h3>',
           prev_content: 0,
           next_content: 0,
         },
@@ -81,6 +88,7 @@ export class Kelas2 extends Component<Props, State> {
       if (data.length > 0) {
         this.setState({
           data: {
+            hal: 1,
             next_content: data[0].next_content,
             prev_content: data[0].prev_content,
             content: marked(data[0].content),
@@ -90,11 +98,16 @@ export class Kelas2 extends Component<Props, State> {
     })
   }
 
-  otherContent(id: number) {
+  otherContent(id: number, btn: string) {
+    document.querySelector('.konten-item').scrollTo(0, 0)
+    const { hal } = this.state.data
+    let pg = hal + 1
+    if (btn == 'prev') pg = hal - 1
     const D = new DataKelas()
     D.getById(id).then((data: Data[]) => {
       this.setState({
         data: {
+          hal: pg,
           next_content: data[0].next_content,
           prev_content: data[0].prev_content,
           content: marked(data[0].content),
@@ -111,7 +124,7 @@ export class Kelas2 extends Component<Props, State> {
       nextBtn = (
         <button
           className='btn btn-danger'
-          onClick={() => this.otherContent(next_content)}>
+          onClick={() => this.otherContent(next_content, 'next')}>
           Next
         </button>
       )
@@ -120,7 +133,7 @@ export class Kelas2 extends Component<Props, State> {
       prevBtn = (
         <button
           className='btn btn-danger'
-          onClick={() => this.otherContent(prev_content)}>
+          onClick={() => this.otherContent(prev_content, 'prev')}>
           Prev
         </button>
       )

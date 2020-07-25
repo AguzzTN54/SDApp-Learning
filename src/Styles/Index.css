@@ -3,18 +3,16 @@
   padding: 0;
   margin: 0;
 }
+html,
+body {
+  overscroll-behavior-y: contain;
+}
 
 #root {
   width: 100%;
   min-height: 100vh;
   overflow-x: hidden;
 }
-
-/* @media screen and (min-width: 576px) {
-  #root {
-    height: 100vh;
-  }
-} */
 
 .content-page {
   background-color: var(--cyan);
@@ -41,4 +39,50 @@
   background-size: contain;
   font-size: 0;
   cursor: pointer;
+}
+
+@media screen and (max-width: 576px) {
+  #root {
+    height: 100vh;
+    overflow-y: hidden;
+  }
+  .content-page {
+    background-attachment: unset !important;
+    padding-top: 20px !important;
+  }
+  .content-page h1 {
+    font-size: 1.1rem;
+  }
+  .content-page h4 {
+    font-size: 0.9rem;
+    margin-top: -10px !important;
+  }
+  .konten {
+    margin-top: 20px !important;
+    height: 75vh;
+  }
+  .konten-item {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    scroll-behavior: smooth !important;
+  }
+  .navBtn {
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .itemKelas {
+    margin-bottom: 10px !important;
+  }
+
+  .materi-title {
+    transform: translateY(-20%) !important;
+    font-size: 0.98rem;
+  }
+  .materiTitle {
+    padding: 5px 15px !important;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 }

@@ -25,7 +25,7 @@ export class DataKelas {
   async getData(target: string) {
     let baseURL: string, returnData: object
     if (process.env.NODE_ENV == 'production') {
-      baseURL = 'http://sdapp-server.herokuapp.com'
+      baseURL = `https://api.allorigins.win/raw?url=http://sdapp-server.herokuapp.com`
     } else {
       baseURL = 'http://localhost:3000'
     }

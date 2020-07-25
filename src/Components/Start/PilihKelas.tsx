@@ -22,7 +22,7 @@ export class PilihKelas extends Component<{}, State> {
         pic = `assets/Images/PilihKelas/kls${i}.png`
 
       const classe = (
-        <div className='col-6 col-md-4 p-1' key={id}>
+        <div className='col-4 col-md-4 p-1 nomor-kelas' key={id}>
           <figure>
             <a href={href}>
               <img
@@ -50,7 +50,7 @@ export class PilihKelas extends Component<{}, State> {
           </h1>
         </div>
         <div className='ml-1 mr-1'>
-          <div className='container konten rounded mt-5 mb-3 p-4 d-flex justify-content-center position-relative'>
+          <div className='container konten rounded mt-5 mb-3 p-4 d-flex justify-content-center align-items-center position-relative'>
             <div className='row justify-content-center text-center w-100'>
               {this.state.classes}
             </div>

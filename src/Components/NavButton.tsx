@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import back from '../Images/Buttons/back.png'
-import home from '../Images/Buttons/home.png'
 
 export default class NavButton extends Component {
   render() {
@@ -9,13 +7,13 @@ export default class NavButton extends Component {
         <a
           onClick={() => window.history.back()}
           className='btn navBtn'
-          style={{ backgroundImage: `url(${back})` }}>
+          style={{ backgroundImage: `url(assets/Images/Buttons/back.png)` }}>
           Back
         </a>
         <a
           className='btn navBtn'
           href='#/pilih'
-          style={{ backgroundImage: `url(${home})` }}>
+          style={{ backgroundImage: `url(assets/Images/Buttons/home.png)` }}>
           Home
         </a>
       </div>
