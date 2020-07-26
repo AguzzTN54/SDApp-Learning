@@ -60,13 +60,13 @@ Source Code ini tidak dapat langsung dijalankan pada browser ketika telah didown
 6. Aplikasi ini menggunakan Service Worker agar tetap dapat diakses meskipun sedang offline, untuk menonaktifkan service worker, cukup hapus kode `PWARegister()` di file `index.ts` dalam folder `src`
 
 ### Server Data Materi
-Semua Materi untuk aplikasi berbasis Web ini berupa skema JSON dan diletakkan pada satu server khusus yang berbeda yaitu [SDApp Server](http://sdapp-server.herokuapp.com). data materi dapat direquest ke server dengan method **GET** dengan endpoint :\
+Semua Materi untuk aplikasi berbasis Web ini berupa skema JSON dan diletakkan pada satu server khusus yang berbeda yaitu [SDApp Server](http://sdapp-server.herokuapp.com). data materi dapat direquest ke server dengan method **GET** dengan endpoint :
 > **/list_bab** : Menampilkan Semua Judul Bab dari semua kelas\
->  params :\
+>  params :
 >   - kelas : _number_ ( kelas 1 - 6 )
 
 > **/data_materi** : Menampilkan semua data materi dari semua kelas\
->  params :\
+>  params :
 >  - id      : *number* ( id Materi )
 >  - grade   : *number* ( kelas 1 -6 )
 >  - sub_bab : *string* ( Judul Bab Materi )
@@ -121,14 +121,16 @@ Aplikasi dibagun bersama Tim yang berjumlah 22 Mahasiswa dari kelas TI Semester 
 
 
 ## PROGRESS
-`13 April 2020` : Menyusun TIM\
-`20 April 2020` : Menentukan Logo Tim\
-`11 May 2020`   : Merancang Proyek\
-`14 Juni 2020`  : Merancang Desain Aplikasi\
-`7 Juli 2020`   : Tahap Development\
-`----`          : Tahap Production\
-`----`          : Quality Assurance\
-`----`          : Release Aplikasi
+| Date | Do |
+| ------------ | -------------------|
+| `13 April 2020` | Menyusun TIM |
+| `20 April 2020` | Menentukan Logo Tim |
+| `11 May 2020`   | Merancang Proyek |
+| `14 Juni 2020`  | Merancang Desain Aplikasi |
+| `7 Juli 2020`   | Tahap Development |
+| `----`          | Tahap Production |
+| `----`          | Quality Assurance |
+| `----`          | Release Aplikasi |
 
 
 ## CLOSING
