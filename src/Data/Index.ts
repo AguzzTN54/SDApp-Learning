@@ -25,12 +25,15 @@ export class DataKelas {
   async getData(target: string) {
     let baseURL: string, returnData: object
     if (process.env.NODE_ENV == 'production') {
-      baseURL = `https://api.allorigins.win/raw?url=http://sdapp-server.herokuapp.com`
+      const uri: string = encodeURIComponent(
+        `http://sdapp-server.herokuapp.com${target}&_sort=id&_order=asc`
+      )
+      baseURL = `https://api.allorigins.win/raw?url=${uri}`
     } else {
-      baseURL = 'http://localhost:3000'
+      baseURL = `http://localhost:3000${target}&_sort=id&_order=asc`
     }
 
-    await fetch(`${baseURL}${target}&_sort=id&_order=asc`)
+    await fetch(baseURL)
       .then((data) => data.json())
       .then((dataJSON) => (returnData = dataJSON))
 

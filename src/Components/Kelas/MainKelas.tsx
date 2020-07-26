@@ -28,11 +28,13 @@ export class Kelas extends Component<Props, State> {
   }
 
   getData() {
-    const { kelas } = this.props
-    const D = new DataKelas()
-    return D.getListBab(kelas).then((data: object[]) => {
-      this.setState({ dataKelas: data[0] })
-    })
+    if (!route().semester) {
+      const { kelas } = this.props
+      const D = new DataKelas()
+      return D.getListBab(kelas).then((data: object[]) => {
+        this.setState({ dataKelas: data[0] })
+      })
+    }
   }
   componentDidUpdate(prevProps: Props) {
     if (prevProps.kelas !== this.props.kelas) {

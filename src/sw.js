@@ -12,7 +12,7 @@ import {
 
 setCacheNameDetails({
   prefix: 'SDApp',
-  suffix: 'v1',
+  suffix: 'v1.1',
   precache: 'Core',
 })
 

@@ -43,29 +43,31 @@ export class MateriDefault extends Component<Props, State> {
       const { name, title } = materi
       document.title = title + ' - Belajar Bahasa Inggris'
       this.props.title(title)
-      D.getFirst({ grade: rute.kelas, subBab: name }).then((data: Data[]) => {
-        if (data.length > 0) {
-          this.setState({
-            title: title,
-            data: {
-              hal: 1,
-              next_content: data[0].next_content,
-              prev_content: data[0].prev_content,
-              content: marked(data[0].content),
-            },
-          })
-        } else {
-          this.setState({
-            title: 'No Data',
-            data: {
-              hal: 0,
-              next_content: 0,
-              prev_content: 0,
-              content: '<h3 class="text-center"> No Data</h3>',
-            },
-          })
-        }
-      })
+      if (name) {
+        D.getFirst({ grade: rute.kelas, subBab: name }).then((data: Data[]) => {
+          if (data.length > 0) {
+            this.setState({
+              title: title,
+              data: {
+                hal: 1,
+                next_content: data[0].next_content,
+                prev_content: data[0].prev_content,
+                content: marked(data[0].content),
+              },
+            })
+          } else {
+            this.setState({
+              title: 'No Data',
+              data: {
+                hal: 0,
+                next_content: 0,
+                prev_content: 0,
+                content: '<h3 class="text-center"> No Data</h3>',
+              },
+            })
+          }
+        })
+      }
     })
   }
 

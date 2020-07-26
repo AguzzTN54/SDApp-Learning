@@ -20,7 +20,9 @@ class Materi extends Component<Props, State> {
     }
   }
   componentDidMount() {
-    this.getListBab(route().kelas)
+    if (!(route().idMateri && route().semester > 0)) {
+      this.getListBab(route().kelas)
+    }
   }
 
   getListBab(grade: number) {
