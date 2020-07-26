@@ -60,29 +60,29 @@ Source Code ini tidak dapat langsung dijalankan pada browser ketika telah didown
 6. Aplikasi ini menggunakan Service Worker agar tetap dapat diakses meskipun sedang offline, untuk menonaktifkan service worker, cukup hapus kode `PWARegister()` di file `index.ts` dalam folder `src`
 
 ### Server Data Materi
-Semua Materi untuk aplikasi berbasis Web ini berupa skema JSON dan diletakkan pada satu server khusus yang berbeda yaitu [SDApp Server](http://sdapp-server.herokuapp.com). data materi dapat direquest ke server dengan method **GET** dengan endpoint :
+Semua Materi untuk aplikasi berbasis Web ini berupa skema JSON dan diletakkan pada satu server khusus yang berbeda yaitu [SDApp Server](http://sdapp-server.herokuapp.com). data materi dapat direquest ke server dengan method **GET** dengan endpoint :\
+> **/list_bab** : Menampilkan Semua Judul Bab dari semua kelas\
+>  params :\
+>   - kelas : _number_ ( kelas 1 - 6 )
 
-**/list_bab** : Menampilkan Semua Judul Bab dari semua kelas
-  params :
-   - kelas : _number_ ( kelas 1 - 6 )
-
-**/data_materi** : Menampilkan semua data materi dari semua kelas
-  params :
-  - id      : *number* ( id Materi )
-  - grade   : *number* ( kelas 1 -6 )
-  - sub_bab : *string* ( Judul Bab Materi )
+> **/data_materi** : Menampilkan semua data materi dari semua kelas\
+>  params :\
+>  - id      : *number* ( id Materi )
+>  - grade   : *number* ( kelas 1 -6 )
+>  - sub_bab : *string* ( Judul Bab Materi )
 
 
 ## LANGUAGE
-1. **Visual Basic .NET**
-   Aplikasi dibangun dengan Windows Form ekosistem .NET 4.7.2 menggunakan Softaware Visual Studio 2019.
-   Versi ini dapat diinstall dan dijalankan pada Sistem Operasi Windows 10.
+1. **Visual Basic .NET**\
+   Aplikasi dibangun dengan Windows Form ekosistem .NET 4.7.2 menggunakan Softaware Visual Studio 2019.\
+   Versi ini dapat diinstall dan dijalankan pada Sistem Operasi Windows 10.\
    Aplikasi berbasis Windows Form ini bisa didapatkan melalui Repository ini [SDApp VB.NET](https://github.com/AguzzTN54/SDApp).
 
-2. **JavaScript** 👁
-   Aplikasi dibangun berdasarkan konsep Progressive Web App & Trusted Web Activity menggunakan bahasa pemrograman Javascript dengan dukungan Library React JS dan Workbox. Aplikasi versi Javascript berjalan melalui browser sehingga dapat dijalankan di berbagai platform dengan baik
+2. **JavaScript** 👁\
+   Aplikasi dibangun berdasarkan konsep Progressive Web App & Trusted Web Activity menggunakan bahasa pemrograman Javascript dengan dukungan Library React JS dan Workbox.\
+   Aplikasi versi Javascript berjalan melalui browser sehingga dapat dijalankan di berbagai platform dengan baik\
    Versi Web Aplikasi SDApp dapat diakses melalui Link ini [SDApp Web App](https://sdapp-learning.web.app)
-
+   
 
 ## KONTRIBUTOR
 Aplikasi dibagun bersama Tim yang berjumlah 22 Mahasiswa dari kelas TI Semester 4 Tahun 2020 dengan rincian sebagai berikut :
@@ -121,14 +121,14 @@ Aplikasi dibagun bersama Tim yang berjumlah 22 Mahasiswa dari kelas TI Semester 
 
 
 ## PROGRESS
-> `13 April 2020` : Menyusun TIM
-> `20 April 2020` : Menentukan Logo Tim
-> `11 May 2020`   : Merancang Proyek
-> `14 Juni 2020`  : Merancang Desain Aplikasi
-> `7 Juli 2020`   : Tahap Development
-> `----`          : Tahap Production
-> `----`          : Quality Assurance
-> `----`          : Release Aplikasi
+`13 April 2020` : Menyusun TIM\
+`20 April 2020` : Menentukan Logo Tim\
+`11 May 2020`   : Merancang Proyek\
+`14 Juni 2020`  : Merancang Desain Aplikasi\
+`7 Juli 2020`   : Tahap Development\
+`----`          : Tahap Production\
+`----`          : Quality Assurance\
+`----`          : Release Aplikasi
 
 
 ## CLOSING
