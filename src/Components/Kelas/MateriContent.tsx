@@ -20,18 +20,18 @@ class Materi extends Component<Props, State> {
     }
   }
   componentDidMount() {
-    if (!(route().idMateri && route().semester > 0)) {
-      this.getListBab(route().kelas)
+    const { kelas, idMateri, semester } = route()
+    if (!(idMateri && semester > 0)) {
+      this.getListBab(kelas)
     }
   }
 
   getListBab(grade: number) {
     const D = new DataKelas()
-    D.getListBab(grade).then((data: any[]) => {
-      let sem: number = null
-      if (data[0].isSemester) sem = this.props.semester
-      this.setState({ semester: sem, data: data[0] })
-    })
+    const data: any[] = D.getListBab(grade)
+    let sem: number = null
+    if (data[0].isSemester) sem = this.props.semester
+    this.setState({ semester: sem, data: data[0] })
   }
 
   setTitle(title: string) {

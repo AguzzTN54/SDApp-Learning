@@ -33,6 +33,11 @@ export class Kelas1 extends Component<Props, State> {
         this.setState({ idMateri: 2 })
         break
 
+      case 3:
+        title = 'Colors'
+        this.setState({ idMateri: 3 })
+        break
+
       default:
         title = 'No Data'
         break
@@ -45,8 +50,10 @@ export class Kelas1 extends Component<Props, State> {
     let content: any = [],
       items: string[],
       folder: string
-    const numbers: string[] = '0123456789'.split(''),
-      alpha: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('')
+    const numbers: string[] = '0123456789'.split('')
+    const alpha: string[] = 'abcdefghijklmnopqrstuvwxyz'.split('')
+    const arrColors: string = 'red orange yellow green blue purple dark white',
+      colors = arrColors.split(' ')
 
     switch (this.props.idMateri) {
       case 1:
@@ -59,24 +66,43 @@ export class Kelas1 extends Component<Props, State> {
         folder = 'Numbers'
         break
 
+      case 3:
+        items = colors
+        folder = 'Colors'
+        break
+
       default:
         break
     }
 
     if (items) {
       items.forEach((item: string) => {
+        let linkclr: string = 'transparent'
         const { kelas, page, semester, idMateri } = route()
+
+        let image = (
+          <img
+            src={`assets/Images/kelas1/${folder}/${item}.webp`}
+            alt={item}
+            style={{ maxWidth: 100 + '%', maxHeight: 100 + '%' }}
+          />
+        )
+
+        if (folder === 'Colors') {
+          linkclr = item
+          image = <></>
+        }
         const alphaItem = (
           <a
             href={`#/${page}/${kelas}/${semester}/${idMateri}/${item}`}
-            className='btn btn-outline-warning m-0'
-            style={{ width: 80 + 'px', height: 80 + 'px' }}
+            className={'btn btn-outline-warning m-0'}
+            style={{
+              width: 80 + 'px',
+              height: 80 + 'px',
+              backgroundColor: 'var(--' + linkclr + ')',
+            }}
             key={`item${item}`}>
-            <img
-              src={`assets/Images/kelas1/${folder}/${item}.webp`}
-              alt={item}
-              style={{ maxWidth: 100 + '%', maxHeight: 100 + '%' }}
-            />
+            {image}
           </a>
         )
         content.push(alphaItem)

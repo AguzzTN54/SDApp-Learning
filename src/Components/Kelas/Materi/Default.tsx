@@ -33,42 +33,41 @@ export class MateriDefault extends Component<Props, State> {
   }
 
   componentDidMount() {
-    const rute = route()
+    const { kelas } = route()
     const D = new DataKelas()
+    const ListBab: any[] = D.getListBab(kelas)
 
-    D.getListBab(rute.kelas).then((data: any[]) => {
-      const { items } = data[0]
-      const materi = items.find((item: any) => item.id == this.props.idMateri)
+    const { items } = ListBab[0]
+    const materi = items.find((item: any) => item.id == this.props.idMateri)
 
-      const { name, title } = materi
-      document.title = title + ' - Belajar Bahasa Inggris'
-      this.props.title(title)
-      if (name) {
-        D.getFirst({ grade: rute.kelas, subBab: name }).then((data: Data[]) => {
-          if (data.length > 0) {
-            this.setState({
-              title: title,
-              data: {
-                hal: 1,
-                next_content: data[0].next_content,
-                prev_content: data[0].prev_content,
-                content: marked(data[0].content),
-              },
-            })
-          } else {
-            this.setState({
-              title: 'No Data',
-              data: {
-                hal: 0,
-                next_content: 0,
-                prev_content: 0,
-                content: '<h3 class="text-center"> No Data</h3>',
-              },
-            })
-          }
+    const { name, title } = materi
+    document.title = title + ' - Belajar Bahasa Inggris'
+    this.props.title(title)
+
+    if (name) {
+      const data: Data[] = D.getFirst({ grade: kelas, subBab: name })
+      if (data.length > 0) {
+        this.setState({
+          title: title,
+          data: {
+            hal: 1,
+            next_content: data[0].next_content,
+            prev_content: data[0].prev_content,
+            content: marked(data[0].content),
+          },
+        })
+      } else {
+        this.setState({
+          title: 'No Data',
+          data: {
+            hal: 0,
+            next_content: 0,
+            prev_content: 0,
+            content: '<h3 class="text-center"> No Data</h3>',
+          },
         })
       }
-    })
+    }
   }
 
   otherContent(id: number, btn: string) {
@@ -76,16 +75,14 @@ export class MateriDefault extends Component<Props, State> {
     const { hal } = this.state.data
     let pg = hal + 1
     if (btn == 'prev') pg = hal - 1
-    const D = new DataKelas()
-    D.getById(id).then((data: Data[]) => {
-      this.setState({
-        data: {
-          hal: pg,
-          next_content: data[0].next_content,
-          prev_content: data[0].prev_content,
-          content: marked(data[0].content),
-        },
-      })
+    const data: Data[] = new DataKelas().getById(id)
+    this.setState({
+      data: {
+        hal: pg,
+        next_content: data[0].next_content,
+        prev_content: data[0].prev_content,
+        content: marked(data[0].content),
+      },
     })
   }
 

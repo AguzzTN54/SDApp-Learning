@@ -9,12 +9,16 @@ class Kelas1Item extends Component<Props, State> {
   }
 
   render() {
-    const { detailItem } = this.props
+    const colors: string = 'red orange yellow green blue purple gray white'
+    const { detailItem } = this.props,
+      rute = route()
     let folder: string = 'Alphabets',
       error: boolean = false
-    if (parseInt(detailItem) > -1 && route().idMateri === 2) {
+    if (parseInt(detailItem) > -1 && rute.idMateri === 2) {
       folder = 'Numbers'
-    } else if (route().idMateri === 1) {
+    } else if (rute.idMateri === 3) {
+      folder = 'Colors'
+    } else if (detailItem.indexOf(colors) && rute.idMateri === 1) {
       error = false
     } else {
       error = true

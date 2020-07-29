@@ -1,59 +1,22 @@
+import Materi from './data.json'
+
 export class DataKelas {
-  static async ambil(target: string) {
-    const dataURI: string = 'data/' + target + '.json'
-    let inCache: boolean = false
-    let returnData = {}
-
-    if ('caches' in window) {
-      await caches.match(dataURI).then((respon) => {
-        if (respon) {
-          respon.json().then((data) => (returnData = data))
-          inCache = true
-        }
-      })
-    }
-
-    await fetch(dataURI)
-      .then((data) => data.json())
-      .then((dataJSON) => {
-        if (!inCache) returnData = dataJSON
-      })
-
-    return await returnData
-  }
-
-  async getData(target: string) {
-    let baseURL: string, returnData: object
-    if (process.env.NODE_ENV == 'production') {
-      const uri: string = encodeURIComponent(
-        `http://sdapp-server.herokuapp.com${target}&_sort=id&_order=asc`
-      )
-      baseURL = `https://api.allorigins.win/raw?url=${uri}`
-    } else {
-      baseURL = `http://localhost:3000${target}&_sort=id&_order=asc`
-    }
-
-    await fetch(baseURL)
-      .then((data) => data.json())
-      .then((dataJSON) => (returnData = dataJSON))
-
-    return await returnData
-  }
-
-  getClassList() {
-    return this.getData(`/list_bab?`)
-  }
-
   getListBab(grade: number) {
-    return this.getData(`/list_bab?kelas=${grade}`)
+    return Materi.list_bab.filter((bab: { kelas: number }) => {
+      return bab.kelas === grade
+    })
   }
 
   getFirst(data: { grade: number; subBab: string }) {
-    return this.getData(
-      `/data_materi?grade=${data.grade}&sub_bab=${data.subBab}&_limit=1`
+    return Materi.data_materi.filter(
+      (M: { grade: number; sub_bab: string }) => {
+        return M.grade == data.grade && M.sub_bab == data.subBab
+      }
     )
   }
   getById(id: number) {
-    return this.getData(`/data_materi?id=${id}`)
+    return Materi.data_materi.filter((M: { id: number }) => {
+      return M.id === id
+    })
   }
 }

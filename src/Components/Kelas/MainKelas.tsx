@@ -17,28 +17,21 @@ export class Kelas extends Component<Props, State> {
     super(props)
 
     document.title = `Kelas ${this.props.kelas} - Belajar Bahasa Inggris`
-    this.state = {
-      dataKelas: null,
-    }
+
     if (!this.props.kelas) {
       window.location.hash = '/pilih'
+      this.state = { dataKelas: null }
     } else {
-      this.getData()
+      this.state = { dataKelas: this.data() }
     }
   }
-
-  getData() {
-    if (!route().semester) {
-      const { kelas } = this.props
-      const D = new DataKelas()
-      return D.getListBab(kelas).then((data: object[]) => {
-        this.setState({ dataKelas: data[0] })
-      })
-    }
+  data() {
+    const { kelas } = this.props
+    return new DataKelas().getListBab(kelas)[0]
   }
   componentDidUpdate(prevProps: Props) {
     if (prevProps.kelas !== this.props.kelas) {
-      this.getData()
+      this.setState({ dataKelas: this.data() })
     }
   }
 

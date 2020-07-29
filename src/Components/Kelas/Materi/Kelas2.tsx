@@ -83,19 +83,17 @@ export class Kelas2 extends Component<Props, State> {
   }
 
   getData(subBab: string) {
-    const D = new DataKelas()
-    D.getFirst({ grade: 2, subBab: subBab }).then((data: Data[]) => {
-      if (data.length > 0) {
-        this.setState({
-          data: {
-            hal: 1,
-            next_content: data[0].next_content,
-            prev_content: data[0].prev_content,
-            content: marked(data[0].content),
-          },
-        })
-      }
-    })
+    const data: Data[] = new DataKelas().getFirst({ grade: 2, subBab: subBab })
+    if (data.length > 0) {
+      this.setState({
+        data: {
+          hal: 1,
+          next_content: data[0].next_content,
+          prev_content: data[0].prev_content,
+          content: marked(data[0].content),
+        },
+      })
+    }
   }
 
   otherContent(id: number, btn: string) {
@@ -103,16 +101,14 @@ export class Kelas2 extends Component<Props, State> {
     const { hal } = this.state.data
     let pg = hal + 1
     if (btn == 'prev') pg = hal - 1
-    const D = new DataKelas()
-    D.getById(id).then((data: Data[]) => {
-      this.setState({
-        data: {
-          hal: pg,
-          next_content: data[0].next_content,
-          prev_content: data[0].prev_content,
-          content: marked(data[0].content),
-        },
-      })
+    const data: Data[] = new DataKelas().getById(id)
+    this.setState({
+      data: {
+        hal: pg,
+        next_content: data[0].next_content,
+        prev_content: data[0].prev_content,
+        content: marked(data[0].content),
+      },
     })
   }
 
@@ -143,7 +139,7 @@ export class Kelas2 extends Component<Props, State> {
         <div className='col-11 col-md-5 text-center'>
           <figure>
             <img
-              src='./assets/Images/kelas2/jam.webp'
+              src={`./assets/Images/kelas2/${this.state.sub_bab}-thumb.webp`}
               alt='Images'
               style={{
                 border: 7 + 'px solid var(--red)',

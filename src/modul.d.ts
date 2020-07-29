@@ -8,6 +8,11 @@ declare module '*.png' {
   export = value
 }
 
+declare module '*.json' {
+  const value: any
+  export default value
+}
+
 declare module '*marked' {
   const value: any
   export = value

@@ -12,7 +12,7 @@ _Dibuat oleh Mahasiswa Semester 4 sebagai salah satu pemenuhan tugas Mata Kuliah
 - [DAFTAR ISI](#daftar-isi)
 - [PROGRESSIVE WEB APP](#progressive-web-app)
   - [Fitur](#fitur)
-  - [SUPPORTED PLATFORMS](#supported-platforms)
+  - [Supported Platforms](#supported-platforms)
   - [Cara Install Source Code](#cara-install-source-code)
     - [Prerequisite](#prerequisite)
     - [Langkah Langkah](#langkah-langkah)
@@ -20,6 +20,7 @@ _Dibuat oleh Mahasiswa Semester 4 sebagai salah satu pemenuhan tugas Mata Kuliah
 - [LANGUAGE](#language)
 - [KONTRIBUTOR](#kontributor)
 - [PROGRESS](#progress)
+- [LICENSE](#license)
 - [CLOSING](#closing)
 
 # PROGRESSIVE WEB APP
@@ -30,7 +31,7 @@ Repository ini berisi source code aplikasi SDApp Learning versi Web tahap Develo
 
 ## Fitur
 
-1. Menyediakan Materi yang dikhususkan untuk siswa kelas 1 - 5 SD
+1. Menyediakan Materi yang dikhususkan untuk siswa kelas 1 - 6 SD
 2. **Cross Platform**,
    Dapat diakses oleh sebagian besar perangkat, baik mobile maupun desktop, karena aplikasi berjalan di Browser
 3. **Responsive**,
@@ -38,7 +39,7 @@ Repository ini berisi source code aplikasi SDApp Learning versi Web tahap Develo
 4. **Offline Ready**,
    Aplikasi ini tetap dapat dijalankan meskipun sedang dalam keadaan offline atau tidak memiliki koneksi internet yang baik.
 
-## SUPPORTED PLATFORMS
+## Supported Platforms
 
 **SDApp Learning** dibangun dengan konsep Trusted Web Activity, sehingga dapat dibundle menjadi satu package aplikasi yang dapat diinstall dan dijalankan seperti aplikasi native lainnya selain melalui browser. Semua Package aplikasi dapat dicari pada halaman [Release](https://github.com/AguzzTN54/SDApp-Learning/releases) ini, atau klik masing masing link di bawah untuk mendownload setiap package
 
@@ -59,7 +60,7 @@ Source Code ini tidak dapat langsung dijalankan pada browser ketika telah didown
 
 ### Langkah Langkah
 
-1. Clone Repository ini dengan command line `git clone https://github.com/AguzzTN54/SDApp-Learning.git` , atau jika belum menginstall git, bisa langsung download dan ekstrak secara manual
+1. Clone Repository ini dengan command line `git clone https://github.com/AguzzTN54/SDApp-Learning.git` , atau jika belum menginstall git, bisa mendownload dan ekstrak secara manual
 2. buka Terminal di dalam folder yang sama dengan file package.json lalu ketikan perintah `npm install` atau `yarn` untuk mendownload semua package dependensi yang dibutuhkan.
 3. Aplikasi sudah dapat dimodifikasi sesuai kebutuhan dan untuk melakukan debuging pda tahap development dapat mengetikan perintah `npm run dev` atau `yarn run dev` di terminal, secara otomatis akan mengarahkan ke url `http://localhost:9000`
 4. Untuk melakukan build aplikasi pada tahap production, ketikan perintah `npm run build` atau `yarn run build` pada terminal
@@ -74,7 +75,7 @@ Semua Materi untuk aplikasi berbasis Web ini berupa skema JSON dan diletakkan pa
 >  params :
 >
 > - kelas : _number_ ( kelas 1 - 6 )
-
+>
 > **/data_materi** : Menampilkan semua data materi dari semua kelas\
 >  params :
 >
@@ -89,8 +90,8 @@ Semua Materi untuk aplikasi berbasis Web ini berupa skema JSON dan diletakkan pa
    Versi ini dapat diinstall dan dijalankan pada Sistem Operasi Windows 10.\
    Aplikasi berbasis Windows Form ini bisa didapatkan melalui Repository ini [SDApp VB.NET](https://github.com/AguzzTN54/SDApp).
 
-2. **JavaScript** 👁\
-   Aplikasi dibangun berdasarkan konsep Progressive Web App & Trusted Web Activity menggunakan bahasa pemrograman Javascript dengan dukungan Library React JS dan Workbox.\
+2. **TypeScript** 👁\
+   Aplikasi dibangun berdasarkan konsep Progressive Web App & Trusted Web Activity menggunakan bahasa pemrograman Typescript yang berbasis Javascript dengan dukungan Library React JS dan Workbox.\
    Aplikasi versi Javascript berjalan melalui browser sehingga dapat dijalankan di berbagai platform dengan baik\
    Versi Web Aplikasi SDApp dapat diakses melalui Link ini [SDApp Web App](https://sdapp-learning.web.app)
 
@@ -147,6 +148,10 @@ Aplikasi dibagun bersama Tim yang berjumlah 22 Mahasiswa dari kelas TI Semester 
 | `----`          | Tahap Production          |
 | `----`          | Quality Assurance         |
 | `----`          | Release Aplikasi          |
+
+# LICENSE
+
+MIT
 
 # CLOSING
 
