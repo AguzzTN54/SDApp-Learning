@@ -114,7 +114,7 @@ export class MateriDefault extends Component<Props, State> {
       )
     }
     return (
-      <div className='col-10 col-sm-9 col-md-8 p-0 mt-4 mb-3'>
+      <div className='col-10 col-sm-9 col-md-8 p-0 mt-4 mb-3 isiMateri'>
         <div dangerouslySetInnerHTML={{ __html: this.state.data.content }} />
         <div
           style={{ justifyContent: 'space-evenly', alignItems: 'center' }}

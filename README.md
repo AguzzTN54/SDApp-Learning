@@ -7,29 +7,32 @@ _Dibuat oleh Mahasiswa Semester 4 sebagai salah satu pemenuhan tugas Mata Kuliah
 > **ONLINE DEMO** => [SDApp Web](https://sdapp-learning-web.app)
 
 # DAFTAR ISI
+Repository ini berisi source code aplikasi SDApp Learning versi Web tahap Development, dibangun menggunakan bahasa pemrograman TypeScript berbasis JavaScript dengan library React JS untuk manajemen komponen & halaman serta Library Workbox untuk manajemen penyimpanan Cache
 
 - [SDAPP LEARNING - Belajar Bahasa Inggris](#sdapp-learning---belajar-bahasa-inggris)
 - [DAFTAR ISI](#daftar-isi)
-- [PROGRESSIVE WEB APP](#progressive-web-app)
-  - [Fitur](#fitur)
-  - [Supported Platforms](#supported-platforms)
-  - [Cara Install Source Code](#cara-install-source-code)
+- [FITUR](#fitur)
+- [INSTALLASI](#installasi)
+  - [Panduan Untuk Pengguna](#panduan-untuk-pengguna)
+  - [Panduan Untuk Developer](#panduan-untuk-developer)
     - [Prerequisite](#prerequisite)
     - [Langkah Langkah](#langkah-langkah)
-  - [Server Data Materi](#server-data-materi)
 - [LANGUAGE](#language)
+- [SUPPORTED PLATFORM](#supported-platform)
 - [KONTRIBUTOR](#kontributor)
+- [KONTRIBUTOR](#kontributor-1)
+    - [Head Manager](#head-manager)
+    - [Analyst](#analyst)
+    - [UI/UX Designer](#uiux-designer)
+    - [Developer](#developer)
+    - [Quality Assurance](#quality-assurance)
 - [PROGRESS](#progress)
 - [LICENSE](#license)
 - [CLOSING](#closing)
 
-# PROGRESSIVE WEB APP
-
-Repository ini berisi source code aplikasi SDApp Learning versi Web tahap Development, dibangun menggunakan bahasa pemrograman TypeScript berbasis JavaScript dengan library React JS untuk manajemen komponen & halaman serta Library Workbox untuk manajemen penyimpanan Cache
-
 ![Cross Platform](screenshot/cross-platform.png)
 
-## Fitur
+# FITUR
 
 1. Menyediakan Materi yang dikhususkan untuk siswa kelas 1 - 6 SD
 2. **Cross Platform**,
@@ -39,17 +42,16 @@ Repository ini berisi source code aplikasi SDApp Learning versi Web tahap Develo
 4. **Offline Ready**,
    Aplikasi ini tetap dapat dijalankan meskipun sedang dalam keadaan offline atau tidak memiliki koneksi internet yang baik.
 
-## Supported Platforms
+# INSTALLASI
 
-**SDApp Learning** dibangun dengan konsep Trusted Web Activity, sehingga dapat dibundle menjadi satu package aplikasi yang dapat diinstall dan dijalankan seperti aplikasi native lainnya selain melalui browser. Semua Package aplikasi dapat dicari pada halaman [Release](https://github.com/AguzzTN54/SDApp-Learning/releases) ini, atau klik masing masing link di bawah untuk mendownload setiap package
+## Panduan Untuk Pengguna
+Sebagai pengguna cukup mendownload salah satu aplikasi pada [SUPPORTED PLATFORM](#supported-platform) dan melakukan installasi seperti pada umumnya aplikasi. Atau dapat mengakses secara online pada alamat [https://sdapp-learning.web.app](https://sdapp-learning.web.app).
 
-- [Windows](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp-windows10.zip)
-- [Mac OS](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp-macos.zip)
-- [Android](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp.apk)
+Jika pengguna Mobile Device. klik text "Add to Home Screen" untuk mendapatkan akses secara offline. apabila pengguna desktop. klik icon install pada Address Bar untuk mendapatkan akses secara offline.
 
-![Home Screen](screenshot/mobile.png) ![Splash Screen](screenshot/mobile-splash-screen.png) ![Pilih Kelas](screenshot/mobile-pilih-kelas.png) ![Kelas 1](screenshot/mobile-kelas1.png)
+*Note: Untuk mendapatkan akses offline. harus menggunakan browser berbasis Chrome*
 
-## Cara Install Source Code
+## Panduan Untuk Developer
 
 Source Code ini tidak dapat langsung dijalankan pada browser ketika telah didownload. Ada beberapa langkah dan pengetahuan khusus yang diperlukan agar aplikasi dapat berjalan dengan baik pada local server.
 
@@ -67,22 +69,6 @@ Source Code ini tidak dapat langsung dijalankan pada browser ketika telah didown
 5. Aplikasi siap diupload ke hosting statis
 6. Aplikasi ini menggunakan Service Worker agar tetap dapat diakses meskipun sedang offline, untuk menonaktifkan service worker, cukup hapus kode `PWARegister()` di file `index.ts` dalam folder `src`
 
-## Server Data Materi
-
-Semua Materi untuk aplikasi berbasis Web ini berupa skema JSON dan diletakkan pada satu server khusus yang berbeda yaitu [SDApp Server](http://sdapp-server.herokuapp.com). data materi dapat direquest ke server dengan method **GET** dengan endpoint :
-
-> **/list_bab** : Menampilkan Semua Judul Bab dari semua kelas\
->  params :
->
-> - kelas : _number_ ( kelas 1 - 6 )
->
-> **/data_materi** : Menampilkan semua data materi dari semua kelas\
->  params :
->
-> - id : _number_ ( id Materi )
-> - grade : _number_ ( kelas 1 -6 )
-> - sub*bab : \_string* ( Judul Bab Materi )
-
 # LANGUAGE
 
 1. **Visual Basic .NET**\
@@ -95,15 +81,30 @@ Semua Materi untuk aplikasi berbasis Web ini berupa skema JSON dan diletakkan pa
    Aplikasi versi Javascript berjalan melalui browser sehingga dapat dijalankan di berbagai platform dengan baik\
    Versi Web Aplikasi SDApp dapat diakses melalui Link ini [SDApp Web App](https://sdapp-learning.web.app)
 
+# SUPPORTED PLATFORM
+
+**SDApp Learning** versi Web App dibangun dengan konsep Progressive Web App dan Trusted Web Activity, dengan begitu aplikasi ini dapat berjalan secara offline hampir di semua platform. Meskipun dapat berjalan secara offline, versi TWA memerlukan browser berbasis chrome untuk berjalan. ini menjadi kendala bagi pengguna yang menggunakan browser selain chrome. untuk itu developer juga membangun versi installernya yang tidak bergantung pada browser dan 100% berjalan secara offline. Semua Package aplikasi dapat dicari pada halaman [Release](https://github.com/AguzzTN54/SDApp-Learning/releases) ini, atau dapat disimak di bawah ini :
+
+
+- [Windows](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp-windows10.zip)
+- [Mac OS](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp-macos.zip)
+- [Android](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp.apk)
+
+![Home Screen](screenshot/mobile.png) ![Splash Screen](screenshot/mobile-splash-screen.png) ![Pilih Kelas](screenshot/mobile-pilih-kelas.png) ![Kelas 1](screenshot/mobile-kelas1.png)
+
 # KONTRIBUTOR
 
 Aplikasi dibagun bersama Tim yang berjumlah 22 Mahasiswa dari kelas TI Semester 4 Tahun 2020 dengan rincian sebagai berikut :
 
-**HEAD**
+# KONTRIBUTOR
+
+Aplikasi dibagun bersama Tim yang berjumlah 22 Mahasiswa dari kelas TI Semester 4 Tahun 2020 dengan rincian sebagai berikut :
+
+### Head Manager
 
 1. Iksanul Karim
 
-**Analyst**
+### Analyst
 
 1. Wildan ( Head )
 2. Alvarisqi N
@@ -116,21 +117,21 @@ Aplikasi dibagun bersama Tim yang berjumlah 22 Mahasiswa dari kelas TI Semester 
 9.
 10. Veren
 
-**UI/UX Designer**
+### UI/UX Designer
 
 1. Haikal ( Head )
 2. Faris
 3. Abdulloh M. A.
 4. Sila
 
-**Developer**
+### Developer
 
 1. [Agustinus Y.](https://github.com/AguzzTN54) ( Head )
 2. [Dimas E.](https://github.com/haidimas)
 3. [M. Nabiel](https://github.com/Nabiel123)
 4. [Venda](https://github.com/verielone)
 
-**Quality Assurance**
+### Quality Assurance
 
 1. Aan Krisdianto
 2. Diaztin
@@ -138,16 +139,19 @@ Aplikasi dibagun bersama Tim yang berjumlah 22 Mahasiswa dari kelas TI Semester 
 
 # PROGRESS
 
-| Date            | Do                        |
-| --------------- | ------------------------- |
-| `13 April 2020` | Menyusun TIM              |
-| `20 April 2020` | Menentukan Logo Tim       |
-| `11 May 2020`   | Merancang Proyek          |
-| `14 Juni 2020`  | Merancang Desain Aplikasi |
-| `7 Juli 2020`   | Tahap Development         |
-| `----`          | Tahap Production          |
-| `----`          | Quality Assurance         |
-| `----`          | Release Aplikasi          |
+| Date            | Do                                |
+| --------------- | --------------------------------- |
+| `13 April 2020` | Menyusun TIM                      |
+| `20 April 2020` | Menentukan Logo Tim               |
+| `11 May 2020`   | Merancang Proyek                  |
+| `14 Juni 2020`  | Merancang Desain Aplikasi         |
+| `7 Juli 2020`   | Tahap Development ( VB.NET )      |
+| `21 Juli 2020`  | Tahap Development ( PWA/TWA/Mac ) |
+| `28 Juli 2020`  | Tahap Development ( Windows/Mac ) |
+| `----`          | Tahap Development ( Android/IOS)  |
+| `----`          | Tahap Production                  |
+| `----`          | Quality Assurance                 |
+| `----`          | Release Aplikasi                  |
 
 # LICENSE
 

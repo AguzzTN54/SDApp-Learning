@@ -32,6 +32,11 @@ registerRoute(
 )
 
 registerRoute(
+  ({ url }) => url.href.indexOf('stylesheet.css') > -1,
+  new StaleWhileRevalidate()
+)
+
+registerRoute(
   new RegExp('.(?:css|js|woff)$'),
   new CacheFirst({
     plugins: [
