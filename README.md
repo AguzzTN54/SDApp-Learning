@@ -18,7 +18,14 @@ Repository ini berisi source code aplikasi SDApp Learning versi Web tahap Develo
     - [Prerequisite](#prerequisite)
     - [Langkah Langkah](#langkah-langkah)
 - [LANGUAGE](#language)
+  - [Visual Basic .NET](#visual-basic-net)
+  - [TypeScript 👁](#typescript-)
 - [SUPPORTED PLATFORM](#supported-platform)
+    - [Web App](#web-app)
+    - [Windows](#windows)
+    - [Mac OS](#mac-os)
+    - [Android](#android)
+    - [IOS](#ios)
 - [KONTRIBUTOR](#kontributor)
 - [KONTRIBUTOR](#kontributor-1)
     - [Head Manager](#head-manager)
@@ -71,24 +78,64 @@ Source Code ini tidak dapat langsung dijalankan pada browser ketika telah didown
 
 # LANGUAGE
 
-1. **Visual Basic .NET**\
-   Aplikasi dibangun dengan Windows Form ekosistem .NET 4.7.2 menggunakan Softaware Visual Studio 2019.\
-   Versi ini dapat diinstall dan dijalankan pada Sistem Operasi Windows 10.\
-   Aplikasi berbasis Windows Form ini bisa didapatkan melalui Repository ini [SDApp VB.NET](https://github.com/AguzzTN54/SDApp).
+## Visual Basic .NET
+Aplikasi dibangun dengan Windows Form ekosistem .NET 4.7.2 menggunakan Softaware Visual Studio 2019.\
+Versi ini dapat diinstall dan dijalankan pada Sistem Operasi Windows 10.\
+Aplikasi berbasis Windows Form ini bisa didapatkan melalui Repository ini [SDApp VB.NET](https://github.com/AguzzTN54/SDApp).
 
-2. **TypeScript** 👁\
-   Aplikasi dibangun berdasarkan konsep Progressive Web App & Trusted Web Activity menggunakan bahasa pemrograman Typescript yang berbasis Javascript dengan dukungan Library React JS dan Workbox.\
-   Aplikasi versi Javascript berjalan melalui browser sehingga dapat dijalankan di berbagai platform dengan baik\
-   Versi Web Aplikasi SDApp dapat diakses melalui Link ini [SDApp Web App](https://sdapp-learning.web.app)
+## TypeScript 👁
+Aplikasi dibangun berdasarkan konsep Progressive Web App & Trusted Web Activity menggunakan bahasa pemrograman Typescript yang berbasis Javascript dengan dukungan Library React JS dan Workbox.\
+Aplikasi versi Javascript berjalan melalui browser sehingga dapat dijalankan di berbagai platform dengan baik\
+Versi Web Aplikasi SDApp dapat diakses melalui Link ini [SDApp Web App](https://sdapp-learning.web.app)
 
 # SUPPORTED PLATFORM
 
-**SDApp Learning** versi Web App dibangun dengan konsep Progressive Web App dan Trusted Web Activity, dengan begitu aplikasi ini dapat berjalan secara offline hampir di semua platform. Meskipun dapat berjalan secara offline, versi TWA memerlukan browser berbasis chrome untuk berjalan. ini menjadi kendala bagi pengguna yang menggunakan browser selain chrome. untuk itu developer juga membangun versi installernya yang tidak bergantung pada browser dan 100% berjalan secara offline. Semua Package aplikasi dapat dicari pada halaman [Release](https://github.com/AguzzTN54/SDApp-Learning/releases) ini, atau dapat disimak di bawah ini :
+Berdasarkan Issue _"[Alternaif untuk platform selain Windows #11](https://github.com/AguzzTN54/SDApp/issues/11)"_ Tim Developer merasa tertantang dan juga membangun aplikasi **SDApp Learning** yang dapat dijalankan dari berbagai platform. sehingga pengguna dapat merasakan pengalaman yang sama meskipun memiliki perbedaan operating sistem. Package Aplikasi untuk platform selain Windows dapat ditemukan pada halaman [Release](https://github.com/AguzzTN54/SDApp/releases) atau dapat dilihat di bawah ini
 
+![Cross Platform](screenshot/cross-platform.png)
 
-- [Windows](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp-windows10.zip)
-- [Mac OS](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp-macos.zip)
-- [Android](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp.apk)
+### Web App
+
+Aplikasi dibangun menggunakan Bahasa Pemrograman Typescript kemudian dideploy ke Heroku untuk Back End dan Google Firebase Hosting untuk Front End. Meskipun merupakan berbasis web, Aplikasi ini tetap dapat dijalankan meskipun dalam keadaan offline. ini dapat terjadi atas dukungan dari library `Workbox`
+
+Keunggulan dari Web Application ini, adalah dapat diakses dari berbagai platform tanpa perlu susah susah mendonwload & meginstall file installer yang cukup besar. Web App ini juga telah menerapkan konsep Progressive Web App sehingga dapat ditambahkan ke homescreen dan bersifat layaknya Aplikasi Native lainnya, baik pada Android, Windows, maupun IOS. Web Application ini dapat diakses melalui :\
+[https://sdapp-learning.web.app](https://sdapp-learning.web.app)
+
+### Windows
+
+Untuk menginstall package yang dibangun dengan ekosistem .NET, sistem operasi harus memiliki `.NET Framework Runtime`, apabila tidak, maka aplikasi tidak dapat berjalan. Untuk itu developer hendak mengatasi masalah tersebut dengan membangun versi alternatif yang lebih mudah untuk diinstall, diantaranya :
+
+1. **VB.NET Version**,
+   Merupakan Aplikasi utama, dibangun dengan Windows Form menggunakan Visual Studio 2019 dengan ekosistem .NET 4.7.2.\
+   [SDApp Learning - VB.NET](https://github.com/AguzzTN54/SDApp/releases/download/v1.0-alpha/SDApp.Learning.-.VB.NET.zip) - 35.9 MB
+2. **TWA Version**,
+   Merupakan pengembangan dari Versi Web App yang telah dibundle menjadi satu installer. Versi ini berjalan dengan cara "Numpang" pada aplikasi browser, khususnya Chrome, sehingga size dari versi ini terbilang sangatlah kecil. namun harus online saat pertama kali aplikasi dibuka, namun proses installasi cukup rumit\
+   [SDApp Learning - Appx Bundle](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp-windows10.zip) - 20 KB
+3. **Universal Installer**,
+   Memiliki file size yang cukup besar. 100% offline sejak pertama kali diinstall. Mudah untuk diinstall. Tidak bergantung pada aplikasi lain. Dibangun menggunakan Library Electron\
+   [SDApp Learning.msi](https://github.com/AguzzTN54/SDApp/releases/download/v1.0-alpha/SDApp_Learning-1.0.0-setup.msi) - 64.2 MB\
+   [SDApp Learning.exe](https://github.com/AguzzTN54/SDApp/releases/download/v1.0-alpha/SDApp_Learning-1.0.0-setup.exe) - 64.2 MB
+
+### Mac OS
+
+Untuk Saat ini hanya tersedia versi App bundle nya saja. Ini merupakan pengembangan dari versi Web App. berjalan di atas browser berbasis Chrome, memiliki file size yang sangat kecil, namun harus online saat pertama kali dijalankan, serta langkah instalasi yang rumit.\
+[SDApp Learning_TWA - Mac OS](https://github.com/AguzzTN54/SDApp-Learning/releacses/download/v1.0-alpha/SDApp-macos.zip) - 707 KB
+
+### Android
+
+Developer juga menyadari bahwa tingkat penggunaan mobile device bagi anak anak usia SD lebih tinggi dibanding penggunaan Desktop Device. Selain itu Mobile device dirasa lebih praktis digunakan dimana saja. Terdapat 2 versi aplikasi yang dibangun oleh developer, yaitu versi _TWA / Custom Tab_ dan _Native_. keduanya bisa didapatkan melalui link berikut :
+
+1. **TWA Version**\
+   Versi TWA, merupakan hasil dari pengembangan SDApp Progressive Web App yang kemudian dibundle menjadi satu package yang dapat diinstall layaknya aplikasi Native lainnya. Versi TWA berjalan di atas browser Chrome, sehingga apabila Chrome tidak terinstall atau masih versi lawas, Versi TWA ini tidak akan berjalan dengan baik. Untuk mendownload versi ini, dapat melalui link berikut :\
+   [SDApp - Learning_TWA.apk](https://github.com/AguzzTN54/SDApp-Learning/releases/download/v1.0-alpha/SDApp.apk) - 3.1 MB
+2. **Native Version**\
+   Dibangun Secara Native, berdiri sendiri, tidak terpengaruh aplikasi lain untuk dijalankan, support Android 6.0 ( Marsmallow ) ke Atas, Versi Native dapat didownload melalui link Berikut :\
+   [SDApp Learning.apk]() _Comming Soon_
+
+### IOS
+
+Aplikasi IOS dan Android ( Native ), memiliki satu source code yang sama, hanya saja menjalani proses Production yang berbeda. Aplikasi untuk IOS dapat didownload melalui link berikut :\
+[SDApp Learning.ipa]() _Comming Soon_
 
 ![Home Screen](screenshot/mobile.png) ![Splash Screen](screenshot/mobile-splash-screen.png) ![Pilih Kelas](screenshot/mobile-pilih-kelas.png) ![Kelas 1](screenshot/mobile-kelas1.png)
 
