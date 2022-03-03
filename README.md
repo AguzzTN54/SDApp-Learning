@@ -4,7 +4,7 @@ _**SDApp Learning** - Belajar Bahasa Inggris_ adalah media pembelajaran Bahasa I
 
 _Dibuat oleh Mahasiswa Semester 4 sebagai salah satu pemenuhan tugas Mata Kuliah Software Development Project, Program Studi Teknik Informatika, Sekolah Tinggi Teknik Malang Tahun 2020._
 
-> **ONLINE DEMO** => [SDApp Web](https://sdapp-learning-web.app)
+> **ONLINE DEMO** => [SDApp Web](https://sdapp-learning.web.app)
 
 # DAFTAR ISI
 Repository ini berisi source code aplikasi SDApp Learning versi Web tahap Development, dibangun menggunakan bahasa pemrograman TypeScript berbasis JavaScript dengan library React JS untuk manajemen komponen & halaman serta Library Workbox untuk manajemen penyimpanan Cache
