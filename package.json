@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "idb": "^5.0.4",
-    "marked": "^1.1.1",
+    "marked": "^4.0.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "regenerator-runtime": "^0.13.5"
